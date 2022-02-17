@@ -22,5 +22,6 @@ Route::get('/toto', function () {
 });
 
 Route::get('/etudiant', function () {
-    return view('etudiant');
+    $etudiants = ['toto', 'titi', 'tata', 'popop'];
+    return view('etudiant', compact('etudiants'));
 });
