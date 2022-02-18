@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,15 @@ Route::get('/toto', function () {
     return view('toto');
 });
 
-Route::get('/etudiant', function () {
-    $etudiants = ['toto', 'titi', 'tata', 'popop'];
-    return view('etudiant', compact('etudiants'));
+Route::name('etudiant')->get('/etudiant', function () {
+    // $etudiants = ['toto', 'titi', 'tata', 'popop'];
+    return view('etudiant');
+});
+
+
+Route::name('store_etudiant')->post('/store_etudiant', function (Request $request) {
+    DB::table('etudiants')->insert([
+        'noms' => $request->noms,
+        'age' => $request->age
+    ]);
 });

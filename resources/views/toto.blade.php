@@ -28,7 +28,8 @@
     </ul>
     <!-- end menu -->
 
-    <!-- content -->
+    <!-- content --><a href="{{ route('etudiant') }}"><button>New Etudiant</button></a>
     @yield('contenu');
+    
 </body>
 </html>
