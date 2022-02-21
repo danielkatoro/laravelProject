@@ -24,8 +24,8 @@ Route::get('/toto', function () {
 });
 
 Route::name('etudiant')->get('/etudiant', function () {
-    // $etudiants = ['toto', 'titi', 'tata', 'popop'];
-    return view('etudiant');
+    $etudiants = DB::select("SELECT * FROM etudiants");
+    return view('etudiant',compact('etudiants'));
 });
 
 

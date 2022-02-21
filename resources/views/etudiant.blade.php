@@ -9,4 +9,11 @@
     <input type="submit" value="Enregistrer">
 </form>
 
+<h3>Liste des etudiants</h3>
+<ul>
+    @foreach($etudiants as $item)
+    <li>{{ $item->noms}}</li>
+    @endforeach
+</ul>
+
 @stop
