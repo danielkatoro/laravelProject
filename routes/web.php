@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EtudiantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -23,10 +24,7 @@ Route::get('/toto', function () {
     return view('toto');
 });
 
-Route::name('etudiant')->get('/etudiant', function () {
-    $etudiants = DB::select("SELECT * FROM etudiants");
-    return view('etudiant',compact('etudiants'));
-});
+Route::name('etudiant')->get('/etudiant', [EtudiantController::class,'acceuil']);
 
 
 Route::name('store_etudiant')->post('/store_etudiant', function (Request $request) {
