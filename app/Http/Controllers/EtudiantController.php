@@ -13,6 +13,12 @@ class EtudiantController extends Controller
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'noms' => 'required',
+            'age' => 'required'
+        ]);
+
         DB::table('etudiants')->insert([
             'noms' => $request->noms,
             'age' => $request->age

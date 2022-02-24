@@ -6,6 +6,14 @@
     <div class="alert alert-primary">Insere avec succes</div>
 @endif
 
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $item)
+        <p>{{$item}}</p>
+        @endforeach
+    </div>
+@endif
+
 <form action="{{ route('store_etudiant') }}" method="POST">
     @csrf
     <input type="text" placeholder="Nom de l'etudiant" name="noms">
@@ -14,7 +22,7 @@
 </form>
 
 <h3>Liste des etudiants</h3>
-<table>
+<table class="table">
 
 <thead>
     <th>Noms</th>
