@@ -1,7 +1,10 @@
-use Illuminate\Support\Facades\DB;
+
 @extends('toto');
 @section('contenu')
 <h2>Hello from Etudiant</h2>
+@if(Session::has('message'))
+    <div class="alert alert-primary">Insere avec succes</div>
+@endif
 
 <form action="{{ route('store_etudiant') }}" method="POST">
     @csrf
@@ -11,10 +14,22 @@ use Illuminate\Support\Facades\DB;
 </form>
 
 <h3>Liste des etudiants</h3>
-<ul>
-    @foreach($etudiants as $item)
-    <li>{{ $item->noms}}</li>
-    @endforeach
-</ul>
+<table>
 
+<thead>
+    <th>Noms</th>
+    <th>Age</th>
+    <th>Action</th>
+</thead>
+<tbody>
+@foreach($etudiants as $item)
+    <tr>
+        <td>{{ $item->noms}}</td>
+        <td>{{ $item->age}}</td>
+        <td>Edit || Delete</td>
+    </tr>
+    @endforeach
+</tbody>
+    
+</table>
 @stop

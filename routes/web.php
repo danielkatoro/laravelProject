@@ -27,9 +27,8 @@ Route::get('/toto', function () {
 Route::name('etudiant')->get('/etudiant', [EtudiantController::class,'acceuil']);
 
 
-Route::name('store_etudiant')->post('/store_etudiant', function (Request $request) {
-    DB::table('etudiants')->insert([
-        'noms' => $request->noms,
-        'age' => $request->age
-    ]);
-});
+Route::name('store_etudiant')->post('/store_etudiant', [EtudiantController::class,'store'] );
+
+Route::name('editEtudiant')->get('/etudiant/{id}', [EtudiantController::class,'edit']);
+
+Route::name('updateEtudiant')->post('/updateEtudiant', [EtudiantController::class,'update']);
