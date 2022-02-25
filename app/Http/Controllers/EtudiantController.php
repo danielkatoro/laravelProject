@@ -24,7 +24,8 @@ class EtudiantController extends Controller
             'age' => $request->age
         ]);
 
-        return redirect()->route('etudiant')->with('message','Inseré avec success');
+        // return redirect()->route('etudiant')->with('message','Inseré avec success');
+        return response()->json(['message' => 'inserted successfully']);
     }
 
     public function edit($id){
