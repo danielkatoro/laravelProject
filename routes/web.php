@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EtudiantController;
+use App\Models\Animal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,14 @@ Route::name('store_etudiant')->post('/store_etudiant', [EtudiantController::clas
 Route::name('editEtudiant')->get('/etudiant/{id}', [EtudiantController::class,'edit']);
 
 Route::name('updateEtudiant')->post('/updateEtudiant', [EtudiantController::class,'update']);
+
+Route::name('animal')->get('/animal', function(){
+    return view('add_annimal');
+});
+Route::name('store_animal')->post('/store_animal', function(Request $request){
+    Animal::create([
+        'nom' => $request->nom,
+        'espece' => $request->espece
+    ]);
+    return 'okey';
+} );
