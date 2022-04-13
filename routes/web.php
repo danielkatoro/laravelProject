@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PersonneController;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,3 +45,6 @@ Route::name('store_animal')->post('/store_animal', function(Request $request){
     ]);
     return 'okey';
 } );
+
+Route::name('index')->get('/add_personne', [PersonneController::class,'index']);
+Route::name('personne.add')->post('/personne.add', [PersonneController::class,'store'] );
