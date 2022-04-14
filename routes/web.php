@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\PersonneController;
 use App\Models\Animal;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +50,9 @@ Route::name('store_animal')->post('/store_animal', function(Request $request){
 
 Route::name('index')->get('/add_personne', [PersonneController::class,'index']);
 Route::name('personne.add')->post('/personne.add', [PersonneController::class,'store'] );
+
+Route::name('customer.index')->get('/index_customer', [CustomerController::class,'index']);
+Route::name('customer.store')->post('/store_customert', [CustomerController::class,'store'] );
+Route::name('customer.edit')->get('/customer_edit/{id}', [CustomerController::class,'edit']);
+Route::name('customer.update')->post('/customer_update', [CustomerController::class,'update']);
+Route::name('cucstomer.destroy')->get('/customer_destroy/{id}', [CustomerController::class, 'destroy']);
